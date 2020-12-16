@@ -1,0 +1,143 @@
+package chattingTest;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.URL;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
+import java.awt.List;
+import javax.swing.AbstractListModel;
+import javax.swing.ButtonGroup;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
+import java.awt.event.ItemEvent; 
+import java.awt.event.ItemListener; 
+import java.awt.event.WindowAdapter; 
+import java.awt.event.WindowEvent;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.awt.*; 
+import java.awt.event.*;
+import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable; 
+import javax.swing.table.DefaultTableModel;
+
+import org.json.simple.parser.ParseException;
+
+
+public class clientTest extends JFrame implements ActionListener
+{
+   public static final Color KAKAO_YELLOW = new Color(250, 225, 0);
+   public static final Color KAKAO_BROWN = new Color(82, 55, 56);
+   public clientTest() throws IOException, ParseException {
+      setTitle("chatting");
+      setSize(350, 600);
+      
+      Container content = getContentPane();
+      content.setLayout(new BorderLayout());
+      content.setBackground(KAKAO_YELLOW);
+      
+      TitledBorder border = new TitledBorder(new LineBorder(Color.BLACK));
+      JPanel buttonPanel = new JPanel();
+      buttonPanel.setLayout(new FlowLayout());
+      
+      buttonPanel.setBorder(border);
+      buttonPanel.setBackground(KAKAO_YELLOW);
+      JButton ptp = new JButton("1:1");
+      ptp.setBackground(KAKAO_BROWN);
+      ptp.setForeground(Color.WHITE);
+      ptp.addActionListener(this);
+      buttonPanel.add(ptp);
+      JButton multi = new JButton("multi");
+      multi.setBackground(KAKAO_BROWN);
+      multi.setForeground(Color.WHITE);
+      multi.addActionListener(this);
+      buttonPanel.add(multi);
+      JButton friend = new JButton("friends");
+      friend.setBackground(KAKAO_BROWN);
+      friend.setForeground(Color.WHITE);
+      friend.addActionListener(this);
+      buttonPanel.add(friend);
+      content.add(buttonPanel, BorderLayout.NORTH);
+      
+      JPanel middle = new JPanel();
+      middle.setBackground(KAKAO_YELLOW);
+      middle.setLayout(new BorderLayout());
+      
+      Font font = new Font("돋움", Font.BOLD, 30);
+      JPanel myInfo = new JPanel();
+      myInfo.setLayout(new BorderLayout());
+      JLabel name = new JLabel("name", SwingConstants.CENTER);
+      name.setFont(font);
+      JTextField word = new JTextField("today's word", SwingConstants.CENTER);
+      JButton modify = new JButton("modify");
+      modify.setBackground(KAKAO_BROWN);
+      modify.setForeground(Color.WHITE);
+      myInfo.add(name, BorderLayout.NORTH);
+      myInfo.add(word, BorderLayout.CENTER);
+      myInfo.add(modify, BorderLayout.SOUTH);
+      
+      content.add(myInfo, BorderLayout.CENTER);
+      
+      JPanel pdata = new JPanel();
+      pdata.setBorder(border);
+      pdata.setPreferredSize(new Dimension(300, 50));
+      JLabel publicData = new JLabel(publicTest.publicTest());
+      pdata.add(publicData);
+      content.add(pdata, BorderLayout.SOUTH);
+      
+      
+   }
+
+   
+  
+
+
+
+@Override
+   public void actionPerformed(ActionEvent e) {
+      if(e.getActionCommand().equals("1:1")) {
+         
+      }
+      else if(e.getActionCommand().equals("multi")) {
+         
+      }
+      else if(e.getActionCommand().equals("friend")) {
+         
+      }
+      else if(e.getActionCommand().equals("modify")) {
+         
+      }
+      
+   }
+    
+    public static void main(String[] args) throws IOException, ParseException {
+       clientTest a = new clientTest();
+       a.setVisible(true);
+    }
+}
